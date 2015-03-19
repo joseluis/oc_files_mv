@@ -109,7 +109,7 @@ OCA.Files_mv.Move = {
 		for( var i=0;i<files.length;++i){
 			file += (files[i].name)+';';
 		}
-		this.createUI(false,file,false);
+		OCA.Files_mv.Move.createUI(false,file,false);
 		return false;
 	},
 

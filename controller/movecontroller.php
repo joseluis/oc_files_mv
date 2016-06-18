@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * ownCloud - files_mv
  *
@@ -84,7 +84,7 @@ class MoveController extends Controller {
 						 */
 						$from->move($to);
 						$filesMoved[] = $file;
-						
+
 					}
 				}
 				catch(\OCP\Files\NotPermittedException $e){
@@ -135,4 +135,3 @@ class MoveController extends Controller {
 	}
 */
 }
-

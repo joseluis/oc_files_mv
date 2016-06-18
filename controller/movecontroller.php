@@ -60,6 +60,11 @@ class MoveController extends Controller {
 		foreach($files as $file){
 			$toPath = ($dest.$file);
 			$fromPath = ($srcDir.$file);
+			// We need to remove leading `/`s from $fromPath, otherwise the substring matching won't work
+            $normalizedFrom = "/" . ltrim($fromPath, "/") . "/";
+            if (substr($toPath, 0, strlen($normalizedFrom)) == $normalizedFrom) {
+                    return array("status"=>"error","message"=>$this->l->t('Dst cannot be a subdirectory of Src!'));
+            }
 			// API: folder-obj->move/copy($to) not working
 			$from = $this->storage->get($fromPath);
 			$to = $this->storage->getFullPath($toPath);

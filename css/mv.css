@@ -23,3 +23,6 @@
 	margin: 0;
 	padding: 0;
 }
+#body-public .action-move {
+    display: none !important;
+}

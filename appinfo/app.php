@@ -11,6 +11,12 @@
 
 namespace OCA\Files_Mv\AppInfo;
 
-\OCP\Util::addScript( 'files_mv', "move" );
-\OCP\Util::addStyle('files_mv', 'mv');
+$eventDispatcher = \OC::$server->getEventDispatcher();
+$eventDispatcher->addListener(
+    'OCA\Files::loadAdditionalScripts',
+    function() {
+        \OCP\Util::addScript('files_mv', 'move');
+        \OCP\Util::addStyle('files_mv', 'mv');
+    }
+);
 
